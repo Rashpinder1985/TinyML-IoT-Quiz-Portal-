@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ONNX Classifier Case Study – Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 900px; margin: auto; }
+    h1, h2, h3 { color: #2c3e50; }
+    .question { margin-bottom: 25px; }
+    .options label { display: block; margin-left: 15px; }
+    input[type="text"] { margin-left: 15px; width: 200px; padding: 5px; }
+    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    #result { margin-top: 30px; font-weight: bold; font-size: 1.1em; background: #f7f7f7; padding: 15px; border-radius: 10px; }
+    .feedback { margin-top: 10px; padding-left: 20px; font-size: 0.95em; }
+    .correct { color: green; }
+    .incorrect { color: red; }
+  </style>
+</head>
+<body>
+  <h1>🧪 TinyML with ONNX & OpenVINO – Case Study Quiz</h1>
+
+  <section id="learning">
+    <h2>📘 Learning Summary</h2>
+    <p>This case study demonstrates how to train a temperature pattern classifier using PyTorch, export it to ONNX format, and run inference using ONNX Runtime and OpenVINO.</p>
+
+    <h3>🔨 1. Model Design</h3>
+    <ul>
+      <li>A feedforward neural network with 2 layers: input size 7 → hidden (16 ReLU) → output (4 classes)</li>
+      <li>Input: a week of temperature readings (7 values)</li>
+      <li>Labels: Cold Spell, Heat Wave, Stable, Fluctuating</li>
+    </ul>
+
+    <h3>🧠 2. Training</h3>
+    <ul>
+      <li>Synthetic data is generated for each class (100 samples each)</li>
+      <li>Training for 50 epochs with CrossEntropyLoss and Adam optimizer</li>
+    </ul>
+
+    <h3>🔄 3. Export to ONNX</h3>
+    <p>The PyTorch model is exported using <code>torch.onnx.export</code>. Input/output names and dynamic axes are defined for flexibility during inference.</p>
+
+    <h3>⚙️ 4. Inference</h3>
+    <ul>
+      <li>ONNX Runtime loads the exported model</li>
+      <li>Inference is run with <code>session.run(None, {input_name: input_data})</code></li>
+      <li>Predicted class index is mapped to the corresponding label</li>
+    </ul>
+
+    <h3>🚀 5. OpenVINO Conversion</h3>
+    <p>The ONNX model is converted to OpenVINO IR format using <code>mo</code> CLI tool for optimized deployment.</p>
+  </section>
+
+  <form id="quizForm">
+    <div class="question">
+      <h3>1. What is the input size of the neural network model used?</h3>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A. 4</label>
+        <label><input type="radio" name="q1" value="B"> B. 7</label>
+        <label><input type="radio" name="q1" value="C"> C. 16</label>
+        <label><input type="radio" name="q1" value="D"> D. 1</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. How many output classes does the model predict?</h3>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A. 2</label>
+        <label><input type="radio" name="q2" value="B"> B. 3</label>
+        <label><input type="radio" name="q2" value="C"> C. 4</label>
+        <label><input type="radio" name="q2" value="D"> D. 5</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Which method is used to export the PyTorch model to ONNX?</h3>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A. model.save_onnx()</label>
+        <label><input type="radio" name="q3" value="B"> B. onnx.export_model()</label>
+        <label><input type="radio" name="q3" value="C"> C. torch.onnx.export()</label>
+        <label><input type="radio" name="q3" value="D"> D. model.to_onnx()</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. What data structure is used for passing input into ONNX Runtime?</h3>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A. Tuple</label>
+        <label><input type="radio" name="q4" value="B"> B. List</label>
+        <label><input type="radio" name="q4" value="C"> C. Dictionary</label>
+        <label><input type="radio" name="q4" value="D"> D. JSON string</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Which steps are needed to convert a model to ONNX format? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q5" value="A"> A. Define dummy input</label>
+        <label><input type="checkbox" name="q5" value="B"> B. Export using torch.onnx.export</label>
+        <label><input type="checkbox" name="q5" value="C"> C. Save model using pickle</label>
+        <label><input type="checkbox" name="q5" value="D"> D. Define input and output names</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. What components are involved in ONNX Runtime inference? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q6" value="A"> A. InferenceSession</label>
+        <label><input type="checkbox" name="q6" value="B"> B. input_name</label>
+        <label><input type="checkbox" name="q6" value="C"> C. input_data</label>
+        <label><input type="checkbox" name="q6" value="D"> D. model.compile()</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. What advantages does defining dynamic axes offer? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q7" value="A"> A. Allows variable batch sizes</label>
+        <label><input type="checkbox" name="q7" value="B"> B. Speeds up training</label>
+        <label><input type="checkbox" name="q7" value="C"> C. Improves flexibility during inference</label>
+        <label><input type="checkbox" name="q7" value="D"> D. Required by ONNX for GPU</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. What are valid class labels used in this classifier? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q8" value="A"> A. Cold Spell</label>
+        <label><input type="checkbox" name="q8" value="B"> B. Stable</label>
+        <label><input type="checkbox" name="q8" value="C"> C. Fluctuating</label>
+        <label><input type="checkbox" name="q8" value="D"> D. Summer</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. (NAT) How many neurons are in the hidden layer?</h3>
+      <input type="text" name="q9" placeholder="e.g., 16">
+    </div>
+
+    <div class="question">
+      <h3>10. (NAT) What CLI tool is used to convert ONNX models to OpenVINO IR format?</h3>
+      <input type="text" name="q10" placeholder="e.g., mo">
+    </div>
+    <!-- Questions will be inserted here -->
+  </form>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+  <div id="result"></div>
+
+  <script>
+    const correctAnswers = {
+      q1: { answer: "B", explanation: "The model takes 7 input values representing a week of temperature data." },
+      q2: { answer: "C", explanation: "There are 4 output classes: Cold Spell, Heat Wave, Stable, and Fluctuating." },
+      q3: { answer: "C", explanation: "The PyTorch model is exported using torch.onnx.export()." },
+      q4: { answer: "C", explanation: "ONNX Runtime expects a dictionary mapping input names to input data arrays." },
+      q5: { answer: ["A", "B", "D"], explanation: "Defining dummy input, using torch.onnx.export, and naming inputs/outputs are key steps." },
+      q6: { answer: ["A", "B", "C"], explanation: "InferenceSession, input_name, and input_data are required to run inference in ONNX Runtime." },
+      q7: { answer: ["A", "C"], explanation: "Dynamic axes allow for flexible input sizes like varying batch sizes." },
+      q8: { answer: ["A", "B", "C"], explanation: "Valid classes include Cold Spell, Stable, and Fluctuating; 'Summer' is not used." },
+      q9: { answer: "16", explanation: "The hidden layer of the model has 16 neurons as per the architecture defined." },
+      q10: { answer: "mo", explanation: "The OpenVINO Model Optimizer (mo) CLI tool converts ONNX models to IR format." }
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let attempted = 0;
+      let total = Object.keys(correctAnswers).length;
+      let feedback = '';
+
+      for (let q in correctAnswers) {
+        const correct = correctAnswers[q].answer;
+        const explanation = correctAnswers[q].explanation;
+        let selected = [];
+        let inputEl = document.querySelectorAll(`[name="${q}"]`);
+        if (!inputEl.length) continue;
+
+        if (inputEl[0].type === "checkbox") {
+          selected = Array.from(inputEl).filter(i => i.checked).map(i => i.value);
+        } else if (inputEl[0].type === "radio") {
+          const checked = Array.from(inputEl).find(i => i.checked);
+          if (checked) selected = [checked.value];
+        } else if (inputEl[0].type === "text") {
+          const value = inputEl[0].value.trim();
+          if (value !== "") selected = [value.toLowerCase()];
+        }
+
+        const userAttempted = selected.length > 0;
+        if (userAttempted) attempted++;
+
+        let isCorrect = false;
+        if (Array.isArray(correct)) {
+          isCorrect = selected.length === correct.length && selected.every(val => correct.includes(val));
+        } else {
+          isCorrect = selected[0] && selected[0].toLowerCase() === correct.toLowerCase();
+        }
+
+        if (isCorrect) {
+          score++;
+          feedback += `<div class="feedback correct">✅ Q${q.substring(1)}: Correct</div>`;
+        } else {
+          feedback += `<div class="feedback incorrect">❌ Q${q.substring(1)}: Incorrect<br>
+            ➤ Correct answer: ${Array.isArray(correct) ? correct.join(', ') : correct}<br>
+            📝 Explanation: ${explanation}</div>`;
+        }
+      }
+
+      document.getElementById("result").innerHTML = `
+        <div>✅ You attempted <strong>${attempted}</strong> out of <strong>${total}</strong> questions.</div>
+        <div>🏆 You got <strong>${score}</strong> correct.</div>
+        <hr>${feedback}
+      `;
+    }
+  </script>
+
+</body>
+</html>
