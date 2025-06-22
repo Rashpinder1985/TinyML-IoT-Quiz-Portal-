@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IoT Security, Privacy, and Ethics – Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 900px; margin: auto; }
+    h1, h2, h3 { color: #2c3e50; }
+    .question { margin-bottom: 25px; }
+    .options label { display: block; margin-left: 15px; }
+    input[type="text"] { margin-left: 15px; width: 200px; padding: 5px; }
+    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    #result { margin-top: 30px; font-weight: bold; font-size: 1.1em; background: #f7f7f7; padding: 15px; border-radius: 10px; }
+    .feedback { margin-top: 10px; padding-left: 20px; font-size: 0.95em; }
+    .correct { color: green; }
+    .incorrect { color: red; }
+  </style>
+</head>
+<body>
+  <h1>🔐 IoT Security, Privacy, and Ethical Challenges – Quiz</h1>
+
+  <section id="learning">
+    <h2>📘 Learning Summary</h2>
+    <p>This module provides a foundational understanding of the challenges and countermeasures related to security, privacy, and ethics in Internet of Things (IoT) ecosystems.</p>
+
+    <h3>🔓 Common Attack Vectors (Explained)</h3>
+    <ul>
+      <li><strong>Physical attacks:</strong> Involve tampering with IoT hardware (e.g., removing memory cards or replacing firmware) to bypass built-in security mechanisms.</li>
+      <li><strong>Malware:</strong> Specially crafted malicious software, like the Mirai botnet, which hijacks poorly secured IoT devices and uses them in large-scale attacks (e.g., DDoS).</li>
+      <li><strong>Credential abuse:</strong> Happens when attackers exploit weak or reused passwords to gain unauthorized access to devices.</li>
+      <li><strong>Man-in-the-Middle (MitM) attacks:</strong> Occur when communication between two devices is intercepted by an unauthorized third party, especially if the data is not encrypted.</li>
+    </ul>
+
+    <h3>📌 Case Study: NightWatch Camera Breach</h3>
+    <p>Smart surveillance cameras branded "NightWatch" were compromised, exposing live video feeds to hackers. This breach was caused by:</p>
+    <ul>
+      <li>Use of default or weak passwords without user prompts to change them</li>
+      <li>Absence of TLS encryption, allowing attackers to intercept video feeds</li>
+      <li>Lack of a proper software update mechanism, preventing timely patching of vulnerabilities</li>
+    </ul>
+    <p><strong>Mitigations included:</strong></p>
+    <ul>
+      <li>Enabling <strong>TLS encryption</strong> to secure data-in-transit</li>
+      <li>Integrating <strong>decentralized AI</strong> to process sensitive data locally, reducing exposure</li>
+      <li>Deploying <strong>anomaly detection</strong> to identify unusual device behavior in real-time</li>
+    </ul>
+
+    <h3>🔐 Key Security Techniques</h3>
+    <ul>
+      <li><strong>RSA:</strong> A public-key encryption scheme often used for secure key exchange but relatively heavy for IoT.</li>
+      <li><strong>AES:</strong> A symmetric key algorithm ideal for fast and efficient bulk data encryption.</li>
+      <li><strong>ECC (Elliptic Curve Cryptography):</strong> Offers strong security with smaller keys, making it suitable for memory-constrained IoT devices.</li>
+      <li><strong>Authentication methods:</strong> 
+        <ul>
+          <li>One-way: Only the client verifies the server (e.g., HTTPS)</li>
+          <li>Mutual: Both ends verify each other</li>
+          <li>Centralized: One entity manages credentials (e.g., cloud-based login)</li>
+          <li>Distributed: Peer-to-peer or blockchain-based validation</li>
+        </ul>
+      </li>
+      <li><strong>PKI (Public Key Infrastructure):</strong> A framework that manages digital certificates and public keys, ensuring secure data exchange and identity verification.</li>
+    </ul>
+
+    <h3>🧭 Ethical Design Principles</h3>
+    <ul>
+      <li><strong>Transparency:</strong> Clearly inform users about what data is being collected and why.</li>
+      <li><strong>Fairness:</strong> Ensure AI decisions are unbiased and inclusive (e.g., avoiding racial/gender bias in smart surveillance).</li>
+      <li><strong>Accountability:</strong> Define who is responsible for outcomes caused by automated decisions or data leaks.</li>
+      <li><strong>Opt-out:</strong> Allow users to disable tracking features or data sharing without sacrificing access to core functionality.</li>
+    </ul>
+  </section>
+
+  <form id="quizForm">
+    <div class="question">
+      <h3>1. What was the main vulnerability exploited in the NightWatch camera breach?</h3>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A. GPS spoofing</label>
+        <label><input type="radio" name="q1" value="B"> B. Weak passwords and lack of encryption</label>
+        <label><input type="radio" name="q1" value="C"> C. SQL injection</label>
+        <label><input type="radio" name="q1" value="D"> D. Cloud misconfiguration</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Which cryptographic technique is known for small key size and high efficiency?</h3>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A. RSA</label>
+        <label><input type="radio" name="q2" value="B"> B. AES</label>
+        <label><input type="radio" name="q2" value="C"> C. ECC</label>
+        <label><input type="radio" name="q2" value="D"> D. SHA-256</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Which protocol is used to secure communication over the internet?</h3>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A. HTTP</label>
+        <label><input type="radio" name="q3" value="B"> B. FTP</label>
+        <label><input type="radio" name="q3" value="C"> C. TLS</label>
+        <label><input type="radio" name="q3" value="D"> D. DNS</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Which of the following is NOT an authentication method in IoT systems?</h3>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A. One-way</label>
+        <label><input type="radio" name="q4" value="B"> B. Centralized</label>
+        <label><input type="radio" name="q4" value="C"> C. Blockchain-based</label>
+        <label><input type="radio" name="q4" value="D"> D. Anonymous mode</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Which of the following are ethical principles for IoT design? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q5" value="A"> A. Transparency</label>
+        <label><input type="checkbox" name="q5" value="B"> B. Fairness</label>
+        <label><input type="checkbox" name="q5" value="C"> C. Obscurity</label>
+        <label><input type="checkbox" name="q5" value="D"> D. Accountability</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Which of these were recommended mitigations in the NightWatch case? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q6" value="A"> A. TLS encryption</label>
+        <label><input type="checkbox" name="q6" value="B"> B. Disabling AI</label>
+        <label><input type="checkbox" name="q6" value="C"> C. Decentralized AI</label>
+        <label><input type="checkbox" name="q6" value="D"> D. Anomaly detection</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. What types of attacks are common in IoT systems? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q7" value="A"> A. Malware</label>
+        <label><input type="checkbox" name="q7" value="B"> B. Physical attacks</label>
+        <label><input type="checkbox" name="q7" value="C"> C. Credential abuse</label>
+        <label><input type="checkbox" name="q7" value="D"> D. SQL injection</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. Which encryption algorithms are used in IoT security? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q8" value="A"> A. RSA</label>
+        <label><input type="checkbox" name="q8" value="B"> B. AES</label>
+        <label><input type="checkbox" name="q8" value="C"> C. ECC</label>
+        <label><input type="checkbox" name="q8" value="D"> D. MD5</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. (NAT) How many output classes were targeted in the temperature classifier from the ONNX case study?</h3>
+      <input type="text" name="q9" placeholder="e.g., 4">
+    </div>
+
+    <div class="question">
+      <h3>10. (NAT) What protocol was used to prevent man-in-the-middle attacks in the camera case?</h3>
+      <input type="text" name="q10" placeholder="e.g., TLS">
+    </div>
+    <!-- Quiz questions will be added here -->
+  </form>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+  <div id="result"></div>
+
+  <script>
+    const correctAnswers = {
+      q1: { answer: "B", explanation: "Weak passwords and unencrypted traffic were the primary vulnerabilities exploited." },
+      q2: { answer: "C", explanation: "ECC (Elliptic Curve Cryptography) provides strong security with small key sizes, ideal for IoT." },
+      q3: { answer: "C", explanation: "TLS (Transport Layer Security) is used to protect data in transit over networks." },
+      q4: { answer: "D", explanation: "Anonymous mode is not a recognized authentication mechanism in secure IoT systems." },
+      q5: { answer: ["A", "B", "D"], explanation: "Transparency, fairness, and accountability are essential ethical principles; obscurity is not." },
+      q6: { answer: ["A", "C", "D"], explanation: "TLS, decentralized AI, and anomaly detection were the key mitigations in the NightWatch case." },
+      q7: { answer: ["A", "B", "C"], explanation: "Malware, physical attacks, and credential abuse are common IoT threats. SQL injection is more common in web apps." },
+      q8: { answer: ["A", "B", "C"], explanation: "RSA, AES, and ECC are standard in IoT encryption; MD5 is outdated and not secure." },
+      q9: { answer: "4", explanation: "The ONNX case study model classified into 4 categories: Cold Spell, Heat Wave, Stable, Fluctuating." },
+      q10: { answer: "tls", explanation: "TLS protocol was used to secure communication and prevent man-in-the-middle attacks." }
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let attempted = 0;
+      let total = Object.keys(correctAnswers).length;
+      let feedback = '';
+
+      for (let q in correctAnswers) {
+        const correct = correctAnswers[q].answer;
+        const explanation = correctAnswers[q].explanation;
+        let selected = [];
+        let inputEl = document.querySelectorAll(`[name="${q}"]`);
+        if (!inputEl.length) continue;
+
+        if (inputEl[0].type === "checkbox") {
+          selected = Array.from(inputEl).filter(i => i.checked).map(i => i.value);
+        } else if (inputEl[0].type === "radio") {
+          const checked = Array.from(inputEl).find(i => i.checked);
+          if (checked) selected = [checked.value];
+        } else if (inputEl[0].type === "text") {
+          const value = inputEl[0].value.trim();
+          if (value !== "") selected = [value.toLowerCase()];
+        }
+
+        const userAttempted = selected.length > 0;
+        if (userAttempted) attempted++;
+
+        let isCorrect = false;
+        if (Array.isArray(correct)) {
+          isCorrect = selected.length === correct.length && selected.every(val => correct.includes(val));
+        } else {
+          isCorrect = selected[0] && selected[0].toLowerCase() === correct.toLowerCase();
+        }
+
+        if (isCorrect) {
+          score++;
+          feedback += `<div class="feedback correct">✅ Q${q.substring(1)}: Correct</div>`;
+        } else {
+          feedback += `<div class="feedback incorrect">❌ Q${q.substring(1)}: Incorrect<br>
+            ➤ Correct answer: ${Array.isArray(correct) ? correct.join(', ') : correct}<br>
+            📝 Explanation: ${explanation}</div>`;
+        }
+      }
+
+      document.getElementById("result").innerHTML = `
+        <div>✅ You attempted <strong>${attempted}</strong> out of <strong>${total}</strong> questions.</div>
+        <div>🏆 You got <strong>${score}</strong> correct.</div>
+        <hr>${feedback}
+      `;
+    }
+  </script>
+
+</body>
+</html>
+
