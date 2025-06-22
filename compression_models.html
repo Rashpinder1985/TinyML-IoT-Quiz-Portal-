@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Compression in TinyML – Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question h3 {
+      margin-bottom: 5px;
+    }
+    .options label {
+      display: block;
+      margin-left: 15px;
+    }
+    input[type="text"] {
+      margin-left: 15px;
+      width: 200px;
+      padding: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: #f7f7f7;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .feedback {
+      margin-top: 10px;
+      padding-left: 20px;
+      font-size: 0.95em;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>TinyML Quiz – Model Compression</h1>
+    <section id="learning-content">
+    <h2>📘 Learning: Model Compression in TinyML</h2>
+    <p><strong>Model compression</strong> techniques reduce the size, memory use, and computation cost of ML models — making them suitable for microcontrollers and edge devices.</p>
+
+    <h3>1. 🧮 Quantization</h3>
+    <p>Reduces numeric precision (e.g., 32-bit float → 8-bit integer). Improves speed and reduces memory usage.</p>
+    <p><strong>Example:</strong> Storing $99.99 as just $100. Less precise, but space-saving.</p>
+
+    <h3>2. ✂️ Pruning</h3>
+    <p>Removes unimportant weights or neurons that don’t affect output significantly.</p>
+    <p><strong>Example:</strong> Trimming unnecessary branches from a tree.</p>
+
+    <h3>3. 👨‍🏫 Knowledge Distillation</h3>
+    <p>Trains a smaller “student” model to mimic the behavior of a large “teacher” model.</p>
+    <p><strong>Example:</strong> A student learns both the answer and the confidence from a teacher.</p>
+
+    <h3>4. 🔄 Weight Clustering / Sharing</h3>
+    <p>Groups similar weights and replaces them with shared representative values.</p>
+    <p><strong>Example:</strong> Replacing many similar decimals like 0.501, 0.502 with a single 0.50 value.</p>
+
+    <h3>5. 🔢 Low-Rank Factorization</h3>
+    <p>Approximates large matrices using smaller ones, reducing computation cost.</p>
+
+    <h3>💡 Why it Matters in TinyML:</h3>
+    <ul>
+      <li>✅ Smaller model files fit on microcontrollers</li>
+      <li>⚡ Faster inference on low-power hardware</li>
+      <li>🔋 Extended battery life on edge devices</li>
+      <li>📦 Enables real-time local processing without cloud</li>
+    </ul>
+
+    <h3>📱 Real-world Example:</h3>
+    <p>A wake-word detector model (like “Hey Watch”) may originally be 1MB. After pruning and quantization, it becomes ~250KB and can run on a 256KB RAM microcontroller.</p>
+  </section>
+
+  <hr>
+
+
+  <form id="quizForm">
+
+    <!-- MCQs -->
+    <div class="question">
+      <h3>1. What is the main goal of model compression in TinyML?</h3>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A. To improve training accuracy</label>
+        <label><input type="radio" name="q1" value="B"> B. To reduce model size and energy use</label>
+        <label><input type="radio" name="q1" value="C"> C. To increase GPU usage</label>
+        <label><input type="radio" name="q1" value="D"> D. To add more layers to the model</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Which compression technique reduces precision of weights?</h3>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A. Pruning</label>
+        <label><input type="radio" name="q2" value="B"> B. Quantization</label>
+        <label><input type="radio" name="q2" value="C"> C. Clustering</label>
+        <label><input type="radio" name="q2" value="D"> D. Feature expansion</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Quantization typically converts 32-bit floats into:</h3>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A. Strings</label>
+        <label><input type="radio" name="q3" value="B"> B. 64-bit integers</label>
+        <label><input type="radio" name="q3" value="C"> C. 8-bit integers</label>
+        <label><input type="radio" name="q3" value="D"> D. Boolean values</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Which of the following is a benefit of model pruning?</h3>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A. Reduces model accuracy</label>
+        <label><input type="radio" name="q4" value="B"> B. Increases memory requirements</label>
+        <label><input type="radio" name="q4" value="C"> C. Reduces computation and model size</label>
+        <label><input type="radio" name="q4" value="D"> D. Increases floating point operations</label>
+      </div>
+    </div>
+
+    <!-- MSQs -->
+    <div class="question">
+      <h3>5. Which of the following are model compression techniques? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q5" value="A"> A. Pruning</label>
+        <label><input type="checkbox" name="q5" value="B"> B. Quantization</label>
+        <label><input type="checkbox" name="q5" value="C"> C. Gradient boosting</label>
+        <label><input type="checkbox" name="q5" value="D"> D. Knowledge distillation</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Benefits of quantization include: (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q6" value="A"> A. Faster inference</label>
+        <label><input type="checkbox" name="q6" value="B"> B. Larger model size</label>
+        <label><input type="checkbox" name="q6" value="C"> C. Lower memory usage</label>
+        <label><input type="checkbox" name="q6" value="D"> D. Improved energy efficiency</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. Knowledge distillation involves: (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q7" value="A"> A. A student model learning from a teacher</label>
+        <label><input type="checkbox" name="q7" value="B"> B. Compressing data directly</label>
+        <label><input type="checkbox" name="q7" value="C"> C. Transferring soft predictions</label>
+        <label><input type="checkbox" name="q7" value="D"> D. Using a large ensemble during inference</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. When should compression be applied? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q8" value="A"> A. Before training</label>
+        <label><input type="checkbox" name="q8" value="B"> B. After training</label>
+        <label><input type="checkbox" name="q8" value="C"> C. During training</label>
+        <label><input type="checkbox" name="q8" value="D"> D. Never, it's harmful</label>
+      </div>
+    </div>
+
+    <!-- NAT -->
+    <div class="question">
+      <h3>9. (NAT) What is the typical bit-width used in quantized TinyML models?</h3>
+      <input type="text" name="q9" placeholder="Enter a number like 8">
+    </div>
+
+    <div class="question">
+      <h3>10. (NAT) How many times smaller can a model become with pruning and quantization (approximate factor)?</h3>
+      <input type="text" name="q10" placeholder="Enter a number like 4">
+    </div>
+
+  </form>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+
+  <div id="result"></div>
+
+  <script>
+    const correctAnswers = {
+      q1: { answer: "B", explanation: "Compression in TinyML focuses on reducing size and energy use." },
+      q2: { answer: "B", explanation: "Quantization reduces precision of weights, e.g. float32 to int8." },
+      q3: { answer: "C", explanation: "Quantization usually maps 32-bit floats to 8-bit integers." },
+      q4: { answer: "C", explanation: "Pruning removes redundant parameters, reducing size and compute." },
+      q5: { answer: ["A", "B", "D"], explanation: "Pruning, Quantization, and Knowledge Distillation are compression methods." },
+      q6: { answer: ["A", "C", "D"], explanation: "Quantization improves speed, memory, and energy usage." },
+      q7: { answer: ["A", "C"], explanation: "Knowledge distillation involves student-teacher learning with soft predictions." },
+      q8: { answer: ["B", "C"], explanation: "Compression is usually applied after or during training." },
+      q9: { answer: "8", explanation: "8-bit integers are typical in quantized TinyML models." },
+      q10: { answer: "4", explanation: "Models can often be compressed 4x or more using both techniques." }
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let attempted = 0;
+      let total = Object.keys(correctAnswers).length;
+      let feedback = '';
+
+      for (let q in correctAnswers) {
+        const correct = correctAnswers[q].answer;
+        const explanation = correctAnswers[q].explanation;
+
+        let selected = [];
+        let inputEl = document.querySelectorAll(`[name="${q}"]`);
+        if (inputEl[0].type === "checkbox") {
+          selected = Array.from(inputEl).filter(i => i.checked).map(i => i.value);
+        } else if (inputEl[0].type === "radio") {
+          const checked = Array.from(inputEl).find(i => i.checked);
+          if (checked) selected = [checked.value];
+        } else if (inputEl[0].type === "text") {
+          const value = inputEl[0].value.trim();
+          if (value !== "") selected = [value];
+        }
+
+        const userAttempted = selected.length > 0;
+        if (userAttempted) attempted++;
+
+        let isCorrect = false;
+
+        if (Array.isArray(correct)) {
+          isCorrect = selected.length === correct.length && selected.every(v => correct.includes(v));
+        } else {
+          isCorrect = selected[0] && selected[0].toString().toLowerCase() === correct.toString().toLowerCase();
+        }
+
+        if (isCorrect) {
+          score++;
+          feedback += `<div class="feedback correct">✅ Q${q.substring(1)}: Correct</div>`;
+        } else {
+          feedback += `<div class="feedback incorrect">❌ Q${q.substring(1)}: Incorrect<br>
+                      ➤ Correct answer: ${Array.isArray(correct) ? correct.join(', ') : correct}<br>
+                      📝 Explanation: ${explanation}</div>`;
+        }
+      }
+
+      document.getElementById("result").innerHTML = `
+        <div>✅ You attempted <strong>${attempted}</strong> out of <strong>${total}</strong> questions.</div>
+        <div>🏆 You got <strong>${score}</strong> correct.</div>
+        <hr>${feedback}
+      `;
+    }
+  </script>
+
+</body>
+</html>
