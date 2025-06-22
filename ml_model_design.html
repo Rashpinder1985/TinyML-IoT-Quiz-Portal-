@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Model Deployment Pipeline on Microcontrollers – TinyML Quiz</title>
+  <title>ML Model Design for Embedded Systems – TinyML Quiz</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -53,140 +53,159 @@
 </head>
 <body>
 
-  <h1>Model Deployment Pipeline on Microcontrollers – TinyML Quiz</h1>
+  <h1>ML Model Design for Embedded Systems – TinyML Quiz</h1>
 
   <section id="learning-content">
-    <h2>📘 Learning: Model Deployment Pipeline on Microcontrollers</h2>
-    <p>Deploying a machine learning model to a microcontroller involves converting, optimizing, compiling, and flashing the model to run on low-resource hardware.</p>
+    <h2>📘 Learning: ML Model Design for Embedded Systems</h2>
+    <p>Designing ML models for embedded systems means balancing <strong>accuracy</strong>, <strong>latency</strong>, <strong>energy efficiency</strong>, and <strong>memory footprint</strong>.</p>
 
-    <h3>1. 💡 Key Deployment Stages</h3>
+    <h3>🔧 1. Constraints of Embedded Systems</h3>
     <ul>
-      <li><strong>Model Training:</strong> Train on PC/cloud</li>
-      <li><strong>Conversion:</strong> Convert model (e.g., to TFLite format)</li>
-      <li><strong>Optimization:</strong> Quantization, pruning, etc.</li>
-      <li><strong>Compilation:</strong> Use a toolchain (e.g., ARM GCC) to generate firmware</li>
-      <li><strong>Deployment:</strong> Flash binary to the microcontroller</li>
-      <li><strong>Testing:</strong> Verify predictions on-device</li>
+      <li>Limited RAM (often &lt; 256 KB)</li>
+      <li>Limited Flash/storage space</li>
+      <li>Low clock speeds (MHz, not GHz)</li>
+      <li>Battery-powered (low energy budgets)</li>
     </ul>
 
-    <h3>2. 🛠️ Tools and Formats</h3>
+    <h3>🎯 2. Design Strategies</h3>
     <ul>
-      <li><strong>TFLite Converter:</strong> Converts Keras/PyTorch to .tflite</li>
-      <li><strong>CMSIS-NN:</strong> Optimized inference on Cortex-M</li>
-      <li><strong>Arduino IDE / PlatformIO:</strong> Used to flash and test models</li>
+      <li><strong>Use small models:</strong> e.g., MobileNet, TinyCNN, decision trees</li>
+      <li><strong>Layer optimization:</strong> Fewer layers, smaller kernels, fewer filters</li>
+      <li><strong>Use integer operations:</strong> Favor quantized (int8) over float32</li>
+      <li><strong>Early exit architectures:</strong> Allow fast inference on easy inputs</li>
     </ul>
 
-    <h3>3. 💪 Practical Example</h3>
-    <p>Deploying a wake-word model:</p>
+    <h3>📦 3. Tools That Help</h3>
     <ul>
-      <li>Train model in TensorFlow</li>
-      <li>Convert to TFLite with int8 quantization</li>
-      <li>Compile into C array using xxd</li>
-      <li>Integrate into Arduino sketch</li>
-      <li>Flash and test on-device</li>
+      <li><strong>TensorFlow Lite for Microcontrollers (TFLM)</strong></li>
+      <li><strong>CMSIS-NN</strong> for ARM Cortex-M optimization</li>
+      <li><strong>uTensor / TVM</strong> for custom compilation</li>
+    </ul>
+
+    <h3>💡 Example:</h3>
+    <p>Designing a gesture recognition model for a microcontroller:</p>
+    <ul>
+      <li>Use 1D CNN with 8-bit quantization</li>
+      <li>Limit total parameters &lt; 20k</li>
+      <li>Target RAM: ~64KB</li>
     </ul>
   </section>
 
   <hr>
 
   <form id="quizForm">
+
+    <!-- MCQs -->
     <div class="question">
-      <h3>1. What tool is commonly used to convert a trained model into .tflite format?</h3>
+      <h3>1. What is a primary constraint of embedded systems?</h3>
       <div class="options">
-        <label><input type="radio" name="q1" value="B"> A. TensorBoard</label>
-        <label><input type="radio" name="q1" value="B"> B. TFLite Converter</label>
-        <label><input type="radio" name="q1" value="C"> C. Arduino CLI</label>
-        <label><input type="radio" name="q1" value="D"> D. Edge Impulse</label>
+        <label><input type="radio" name="q1" value="A"> A. Unlimited power</label>
+        <label><input type="radio" name="q1" value="B"> B. Large GPU support</label>
+        <label><input type="radio" name="q1" value="C"> C. Limited RAM and compute</label>
+        <label><input type="radio" name="q1" value="D"> D. High storage bandwidth</label>
       </div>
     </div>
+
     <div class="question">
-      <h3>2. What format is typically used to represent a quantized model?</h3>
+      <h3>2. Which datatype is preferred in TinyML model design?</h3>
       <div class="options">
-        <label><input type="radio" name="q2" value="C"> A. .pb</label>
-        <label><input type="radio" name="q2" value="C"> B. .h5</label>
-        <label><input type="radio" name="q2" value="C"> C. .tflite</label>
-        <label><input type="radio" name="q2" value="D"> D. .pt</label>
+        <label><input type="radio" name="q2" value="A"> A. float64</label>
+        <label><input type="radio" name="q2" value="B"> B. int32</label>
+        <label><input type="radio" name="q2" value="C"> C. int8</label>
+        <label><input type="radio" name="q2" value="D"> D. complex64</label>
       </div>
     </div>
+
     <div class="question">
-      <h3>3. What does CMSIS-NN optimize for?</h3>
+      <h3>3. Which tool is optimized for ARM Cortex-M processors?</h3>
       <div class="options">
-        <label><input type="radio" name="q3" value="B"> A. GPUs</label>
-        <label><input type="radio" name="q3" value="B"> B. ARM Cortex-M CPUs</label>
-        <label><input type="radio" name="q3" value="C"> C. Raspberry Pi</label>
-        <label><input type="radio" name="q3" value="D"> D. Cloud GPUs</label>
+        <label><input type="radio" name="q3" value="A"> A. PyTorch</label>
+        <label><input type="radio" name="q3" value="B"> B. CMSIS-NN</label>
+        <label><input type="radio" name="q3" value="C"> C. XGBoost</label>
+        <label><input type="radio" name="q3" value="D"> D. TensorBoard</label>
       </div>
     </div>
+
     <div class="question">
-      <h3>4. Which of the following is NOT typically part of the deployment pipeline?</h3>
+      <h3>4. Which architecture is commonly used in embedded-friendly vision models?</h3>
       <div class="options">
-        <label><input type="radio" name="q4" value="D"> A. Model training</label>
-        <label><input type="radio" name="q4" value="D"> B. Conversion</label>
-        <label><input type="radio" name="q4" value="D"> C. Pruning</label>
-        <label><input type="radio" name="q4" value="D"> D. Model painting</label>
+        <label><input type="radio" name="q4" value="A"> A. ResNet152</label>
+        <label><input type="radio" name="q4" value="B"> B. MobileNet</label>
+        <label><input type="radio" name="q4" value="C"> C. BERT</label>
+        <label><input type="radio" name="q4" value="D"> D. Transformer XL</label>
       </div>
     </div>
+
+    <!-- MSQs -->
     <div class="question">
-      <h3>5. Which steps are part of the deployment pipeline? (Select all that apply)</h3>
+      <h3>5. Which of the following are typical constraints in embedded ML model design? (Select all that apply)</h3>
       <div class="options">
-        <label><input type="checkbox" name="q5" value="A"> A. Model conversion</label>
-        <label><input type="checkbox" name="q5" value="B"> B. Compilation</label>
-        <label><input type="checkbox" name="q5" value="C"> C. Painting UI</label>
-        <label><input type="checkbox" name="q5" value="D"> D. Flashing firmware</label>
+        <label><input type="checkbox" name="q5" value="A"> A. Limited Flash</label>
+        <label><input type="checkbox" name="q5" value="B"> B. High power budget</label>
+        <label><input type="checkbox" name="q5" value="C"> C. Low memory</label>
+        <label><input type="checkbox" name="q5" value="D"> D. Real-time performance needs</label>
       </div>
     </div>
+
     <div class="question">
-      <h3>6. Which tools can be used to flash models to microcontrollers? (Select all that apply)</h3>
+      <h3>6. Which model types are commonly used in embedded systems? (Select all that apply)</h3>
       <div class="options">
-        <label><input type="checkbox" name="q6" value="A"> A. PlatformIO</label>
-        <label><input type="checkbox" name="q6" value="B"> B. Arduino IDE</label>
-        <label><input type="checkbox" name="q6" value="C"> C. TensorBoard</label>
-        <label><input type="checkbox" name="q6" value="D"> D. CMSIS-NN</label>
+        <label><input type="checkbox" name="q6" value="A"> A. TinyCNN</label>
+        <label><input type="checkbox" name="q6" value="B"> B. Decision Trees</label>
+        <label><input type="checkbox" name="q6" value="C"> C. LSTM</label>
+        <label><input type="checkbox" name="q6" value="D"> D. Large Transformers</label>
       </div>
     </div>
+
     <div class="question">
-      <h3>7. Which of the following are optimization techniques before deployment? (Select all that apply)</h3>
+      <h3>7. What are design strategies to reduce model size? (Select all that apply)</h3>
       <div class="options">
-        <label><input type="checkbox" name="q7" value="A"> A. Quantization</label>
-        <label><input type="checkbox" name="q7" value="B"> B. Pruning</label>
-        <label><input type="checkbox" name="q7" value="C"> C. Compression</label>
-        <label><input type="checkbox" name="q7" value="D"> D. Encryption</label>
+        <label><input type="checkbox" name="q7" value="A"> A. Use fewer layers</label>
+        <label><input type="checkbox" name="q7" value="B"> B. Use floating point precision</label>
+        <label><input type="checkbox" name="q7" value="C"> C. Quantize weights</label>
+        <label><input type="checkbox" name="q7" value="D"> D. Use smaller kernel sizes</label>
       </div>
     </div>
+
     <div class="question">
-      <h3>8. What can be used to verify model performance on-device? (Select all that apply)</h3>
+      <h3>8. Which of the following are suitable frameworks for embedded ML deployment? (Select all that apply)</h3>
       <div class="options">
-        <label><input type="checkbox" name="q8" value="A"> A. Live testing with sensor inputs</label>
-        <label><input type="checkbox" name="q8" value="B"> B. Serial monitor output</label>
-        <label><input type="checkbox" name="q8" value="C"> C. Model training accuracy</label>
-        <label><input type="checkbox" name="q8" value="D"> D. Deployment logs</label>
+        <label><input type="checkbox" name="q8" value="A"> A. TensorFlow Lite Micro</label>
+        <label><input type="checkbox" name="q8" value="B"> B. CMSIS-NN</label>
+        <label><input type="checkbox" name="q8" value="C"> C. PyTorch Lightning</label>
+        <label><input type="checkbox" name="q8" value="D"> D. TVM</label>
       </div>
     </div>
+
+    <!-- NAT -->
     <div class="question">
-      <h3>9. (NAT) What is the typical file extension of a compiled model for deployment in TFLite?</h3>
-      <input type="text" name="q9" placeholder="e.g., .tflite">
+      <h3>9. (NAT) What is the typical RAM size (in KB) available on TinyML microcontrollers?</h3>
+      <input type="text" name="q9" placeholder="Enter a number like 256">
     </div>
+
     <div class="question">
-      <h3>10. (NAT) What is the minimum RAM (in KB) commonly required to run a TinyML model on a microcontroller?</h3>
-      <input type="text" name="q10" placeholder="e.g., 16">
+      <h3>10. (NAT) What is the preferred bit-width for quantized models in embedded systems?</h3>
+      <input type="text" name="q10" placeholder="Enter a number like 8">
     </div>
+
   </form>
 
-
   <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+
   <div id="result"></div>
-<script>
+
+  <script>
     const correctAnswers = {
-      q1: { answer: "B", explanation: "TFLite Converter is used to convert models into .tflite format." },
-      q2: { answer: "C", explanation: ".tflite is the standard format for TFLite models." },
-      q3: { answer: "B", explanation: "CMSIS-NN is optimized for ARM Cortex-M CPUs." },
-      q4: { answer: "D", explanation: "'Model painting' is not a step in ML deployment." },
-      q5: { answer: ["A", "B", "D"], explanation: "Conversion, compilation, and flashing are key steps." },
-      q6: { answer: ["A", "B"], explanation: "PlatformIO and Arduino IDE are used for flashing models." },
-      q7: { answer: ["A", "B", "C"], explanation: "Quantization, pruning, and compression are valid optimizations." },
-      q8: { answer: ["A", "B", "D"], explanation: "Live testing, serial output, and logs help verify performance." },
-      q9: { answer: ".tflite", explanation: ".tflite is the extension for TensorFlow Lite models." },
-      q10: { answer: "16", explanation: "16 KB is typically the minimum RAM needed to run TinyML models." }
+      q1: { answer: "C", explanation: "Embedded systems have limited RAM, storage, and CPU power." },
+      q2: { answer: "C", explanation: "int8 is preferred for quantization in embedded systems." },
+      q3: { answer: "B", explanation: "CMSIS-NN is optimized for ARM Cortex-M processors." },
+      q4: { answer: "B", explanation: "MobileNet is a compact model suitable for embedded vision tasks." },
+      q5: { answer: ["A", "C", "D"], explanation: "Embedded design is constrained by Flash, memory, and real-time needs." },
+      q6: { answer: ["A", "B", "C"], explanation: "TinyCNNs, decision trees, and LSTMs are used, but not large transformers." },
+      q7: { answer: ["A", "C", "D"], explanation: "Reducing layers, kernel sizes, and quantizing weights shrinks models." },
+      q8: { answer: ["A", "B", "D"], explanation: "TFLite Micro, CMSIS-NN, and TVM support embedded deployment." },
+      q9: { answer: "256", explanation: "Typical microcontrollers offer 64–256 KB of RAM." },
+      q10: { answer: "8", explanation: "Quantized models use 8-bit integers for inference efficiency." }
     };
 
     function submitQuiz() {
@@ -198,10 +217,9 @@
       for (let q in correctAnswers) {
         const correct = correctAnswers[q].answer;
         const explanation = correctAnswers[q].explanation;
+
         let selected = [];
         let inputEl = document.querySelectorAll(`[name="${q}"]`);
-        if (!inputEl.length) continue;
-
         if (inputEl[0].type === "checkbox") {
           selected = Array.from(inputEl).filter(i => i.checked).map(i => i.value);
         } else if (inputEl[0].type === "radio") {
@@ -209,7 +227,7 @@
           if (checked) selected = [checked.value];
         } else if (inputEl[0].type === "text") {
           const value = inputEl[0].value.trim();
-          if (value !== "") selected = [value.toLowerCase()];
+          if (value !== "") selected = [value];
         }
 
         const userAttempted = selected.length > 0;
@@ -217,9 +235,9 @@
 
         let isCorrect = false;
         if (Array.isArray(correct)) {
-          isCorrect = selected.length === correct.length && selected.every(val => correct.includes(val));
+          isCorrect = selected.length === correct.length && selected.every(v => correct.includes(v));
         } else {
-          isCorrect = selected[0] && selected[0].toLowerCase() === correct.toLowerCase();
+          isCorrect = selected[0] && selected[0].toString().toLowerCase() === correct.toString().toLowerCase();
         }
 
         if (isCorrect) {
@@ -227,8 +245,8 @@
           feedback += `<div class="feedback correct">✅ Q${q.substring(1)}: Correct</div>`;
         } else {
           feedback += `<div class="feedback incorrect">❌ Q${q.substring(1)}: Incorrect<br>
-            ➤ Correct answer: ${Array.isArray(correct) ? correct.join(', ') : correct}<br>
-            📝 Explanation: ${explanation}</div>`;
+                      ➤ Correct answer: ${Array.isArray(correct) ? correct.join(', ') : correct}<br>
+                      📝 Explanation: ${explanation}</div>`;
         }
       }
 
@@ -239,6 +257,6 @@
       `;
     }
   </script>
+
 </body>
 </html>
-
