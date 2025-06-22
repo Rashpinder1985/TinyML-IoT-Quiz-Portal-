@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IoT and AI Integration Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 950px; margin: auto; }
+    h1, h2, h3 { color: #2c3e50; }
+    .question { margin-bottom: 25px; }
+    .options label { display: block; margin-left: 15px; }
+    input[type="text"] { margin-left: 15px; width: 200px; padding: 5px; }
+    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    #result { margin-top: 30px; font-weight: bold; font-size: 1.1em; background: #f7f7f7; padding: 15px; border-radius: 10px; }
+    .feedback { margin-top: 10px; padding-left: 20px; font-size: 0.95em; }
+    .correct { color: green; }
+    .incorrect { color: red; }
+  </style>
+</head>
+<body>
+  <h1>🌐 IoT and AI Integration – Theory & Quiz</h1>
+
+  <section id="learning">
+    <h2>📘 Learning Summary</h2>
+    <ul>
+      <li><strong>Fundamentals of IoT and AI Integration:</strong> Combining IoT's real-world sensing with AI's decision-making enables intelligent automation across smart homes, cities, agriculture, and more.</li>
+      <li><strong>Sensors, Actuators, and Edge Devices:</strong> Sensors collect data (e.g., temperature), actuators perform actions (e.g., turn on fan), and edge devices process data locally to reduce latency.</li>
+      <li><strong>IoT System Architecture & Protocols:</strong> Layered structure includes sensing, networking, and cloud layers. Protocols like MQTT, CoAP, and HTTP govern device communication.</li>
+      <li><strong>Data Collection and Management:</strong> Involves acquiring, preprocessing, and storing sensor data, often in cloud or edge databases, and maintaining security and integrity.</li>
+      <li><strong>IoT Analytics:</strong> Applying data analysis or AI/ML models to gain insights, make predictions, or automate actions from IoT data streams.</li>
+      <li><strong>IoT Networks:</strong> Include LPWAN (e.g., LoRaWAN), Wi-Fi, Bluetooth, Zigbee. Selection depends on range, power, and bandwidth needs.</li>
+      <li><strong>AI Techniques for IoT:</strong> Classification, clustering, anomaly detection, reinforcement learning — tailored for low-power execution and real-time inference.</li>
+      <li><strong>Deployment on Edge Devices:</strong> Lightweight AI models (e.g., quantized neural networks) are deployed on devices like Raspberry Pi, ESP32, or microcontrollers for offline inference.</li>
+    </ul>
+  </section>
+
+  <form id="quizForm">
+
+    <h2>📝 Quiz Questions</h2>
+
+    <!-- MCQs -->
+    <div class="question">
+      <h3>1. What is the main goal of integrating AI with IoT?</h3>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A. To increase hardware costs</label>
+        <label><input type="radio" name="q1" value="B"> B. To enable autonomous decision-making</label>
+        <label><input type="radio" name="q1" value="C"> C. To reduce internet dependency</label>
+        <label><input type="radio" name="q1" value="D"> D. To eliminate cloud computing</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Which component is responsible for performing physical actions in an IoT system?</h3>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A. Sensor</label>
+        <label><input type="radio" name="q2" value="B"> B. Gateway</label>
+        <label><input type="radio" name="q2" value="C"> C. Actuator</label>
+        <label><input type="radio" name="q2" value="D"> D. Edge server</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. MQTT is primarily used in IoT for:</h3>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A. Video streaming</label>
+        <label><input type="radio" name="q3" value="B"> B. Low-power messaging</label>
+        <label><input type="radio" name="q3" value="C"> C. Authentication</label>
+        <label><input type="radio" name="q3" value="D"> D. Cloud storage</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. What type of data is typically collected by sensors?</h3>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A. Actuator status</label>
+        <label><input type="radio" name="q4" value="B"> B. Physical environment values</label>
+        <label><input type="radio" name="q4" value="C"> C. Device logs only</label>
+        <label><input type="radio" name="q4" value="D"> D. Network packets</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Which network type is best suited for long-range, low-power applications?</h3>
+      <div class="options">
+        <label><input type="radio" name="q5" value="A"> A. Wi-Fi</label>
+        <label><input type="radio" name="q5" value="B"> B. Zigbee</label>
+        <label><input type="radio" name="q5" value="C"> C. LoRaWAN</label>
+        <label><input type="radio" name="q5" value="D"> D. Bluetooth</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Which AI technique is most suitable for detecting unusual behavior in sensor data?</h3>
+      <div class="options">
+        <label><input type="radio" name="q6" value="A"> A. Clustering</label>
+        <label><input type="radio" name="q6" value="B"> B. Classification</label>
+        <label><input type="radio" name="q6" value="C"> C. Regression</label>
+        <label><input type="radio" name="q6" value="D"> D. Anomaly Detection</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. What role does the edge device play in AI-based IoT?</h3>
+      <div class="options">
+        <label><input type="radio" name="q7" value="A"> A. Solely data storage</label>
+        <label><input type="radio" name="q7" value="B"> B. Performing real-time local inference</label>
+        <label><input type="radio" name="q7" value="C"> C. Sending alerts only</label>
+        <label><input type="radio" name="q7" value="D"> D. Charging IoT batteries</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. Which of the following is NOT a function of an IoT gateway?</h3>
+      <div class="options">
+        <label><input type="radio" name="q8" value="A"> A. Data filtering</label>
+        <label><input type="radio" name="q8" value="B"> B. Sensor calibration</label>
+        <label><input type="radio" name="q8" value="C"> C. Protocol translation</label>
+        <label><input type="radio" name="q8" value="D"> D. Security enforcement</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. In AI deployment, what is the main advantage of model quantization?</h3>
+      <div class="options">
+        <label><input type="radio" name="q9" value="A"> A. Increase in training accuracy</label>
+        <label><input type="radio" name="q9" value="B"> B. Reduced inference latency and memory footprint</label>
+        <label><input type="radio" name="q9" value="C"> C. Larger file size</label>
+        <label><input type="radio" name="q9" value="D"> D. Compatibility with cloud only</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>10. What defines the communication between IoT devices in a network?</h3>
+      <div class="options">
+        <label><input type="radio" name="q10" value="A"> A. Storage policies</label>
+        <label><input type="radio" name="q10" value="B"> B. Actuator commands</label>
+        <label><input type="radio" name="q10" value="C"> C. Communication protocols</label>
+        <label><input type="radio" name="q10" value="D"> D. AI model parameters</label>
+      </div>
+    </div>
+    <!-- Questions will be inserted here -->
+
+    <!-- MSQs -->
+    <div class="question">
+      <h3>11. Which of the following are examples of edge devices? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q11" value="A"> A. Raspberry Pi</label>
+        <label><input type="checkbox" name="q11" value="B"> B. Arduino Uno</label>
+        <label><input type="checkbox" name="q11" value="C"> C. AWS S3</label>
+        <label><input type="checkbox" name="q11" value="D"> D. ESP32</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>12. Which of the following are common IoT communication protocols? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q12" value="A"> A. MQTT</label>
+        <label><input type="checkbox" name="q12" value="B"> B. CoAP</label>
+        <label><input type="checkbox" name="q12" value="C"> C. SSH</label>
+        <label><input type="checkbox" name="q12" value="D"> D. HTTP</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>13. Which actions are part of IoT data management? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q13" value="A"> A. Data acquisition</label>
+        <label><input type="checkbox" name="q13" value="B"> B. Model training</label>
+        <label><input type="checkbox" name="q13" value="C"> C. Preprocessing</label>
+        <label><input type="checkbox" name="q13" value="D"> D. Data storage</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>14. Which AI techniques are commonly used in IoT applications? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q14" value="A"> A. Regression</label>
+        <label><input type="checkbox" name="q14" value="B"> B. Reinforcement Learning</label>
+        <label><input type="checkbox" name="q14" value="C"> C. Anomaly Detection</label>
+        <label><input type="checkbox" name="q14" value="D"> D. Style Transfer</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>15. Which components are typically found in an IoT system architecture? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q15" value="A"> A. Sensing Layer</label>
+        <label><input type="checkbox" name="q15" value="B"> B. Blockchain Layer</label>
+        <label><input type="checkbox" name="q15" value="C"> C. Network Layer</label>
+        <label><input type="checkbox" name="q15" value="D"> D. Application Layer</label>
+      </div>
+    </div>
+
+    <!-- NATs -->
+    <div class="question">
+      <h3>16. (NAT) How many layers are there typically in an IoT system architecture?</h3>
+      <input type="text" name="q16" placeholder="e.g., 3">
+    </div>
+
+    <div class="question">
+      <h3>17. (NAT) What type of learning is used in smart thermostats to adjust temperature based on feedback?</h3>
+      <input type="text" name="q17" placeholder="e.g., reinforcement learning">
+    </div>
+
+    <div class="question">
+      <h3>18. (NAT) Name the lightweight messaging protocol often used in constrained IoT devices.</h3>
+      <input type="text" name="q18" placeholder="e.g., mqtt">
+    </div>
+
+    <div class="question">
+      <h3>19. (NAT) What is the full form of LPWAN?</h3>
+      <input type="text" name="q19" placeholder="e.g., Low Power Wide Area Network">
+    </div>
+
+    <div class="question">
+      <h3>20. (NAT) Which open-source hardware platform is commonly used in DIY IoT projects?</h3>
+      <input type="text" name="q20" placeholder="e.g., arduino">
+    </div>
+  </form>
+
+  <button type="button">Submit Quiz</button>
+  <div id="result"></div>
+  <script>
+const correctAnswers = {
+  q1: { answer: "B", explanation: "AI enables autonomous decision-making when integrated with IoT." },
+  q2: { answer: "C", explanation: "Actuators perform actions like opening valves or turning on lights." },
+  q3: { answer: "B", explanation: "MQTT is a lightweight messaging protocol ideal for IoT." },
+  q4: { answer: "B", explanation: "Sensors collect physical values like temperature or humidity." },
+  q5: { answer: "C", explanation: "LoRaWAN is designed for long-range, low-power communication." },
+  q6: { answer: "D", explanation: "Anomaly detection finds unusual patterns in data streams." },
+  q7: { answer: "B", explanation: "Edge devices handle real-time inference and reduce latency." },
+  q8: { answer: "B", explanation: "Sensor calibration is done at device level, not by gateways." },
+  q9: { answer: "B", explanation: "Quantization reduces model size and latency for inference." },
+  q10: { answer: "C", explanation: "Protocols like MQTT, CoAP define device-to-device communication." },
+
+  q11: { answer: ["A", "B", "D"], explanation: "Raspberry Pi, Arduino, ESP32 are common edge devices." },
+  q12: { answer: ["A", "B", "D"], explanation: "MQTT, CoAP, and HTTP are common communication protocols." },
+  q13: { answer: ["A", "C", "D"], explanation: "Data acquisition, preprocessing, and storage are core parts of IoT data management." },
+  q14: { answer: ["A", "B", "C"], explanation: "Regression, reinforcement learning, and anomaly detection are widely used in IoT." },
+  q15: { answer: ["A", "C", "D"], explanation: "Standard IoT architecture includes sensing, network, and application layers." },
+
+  q16: { answer: "3", explanation: "Most IoT systems use a 3-layer architecture: perception, network, and application." },
+  q17: { answer: "reinforcement learning", explanation: "Smart thermostats learn using reinforcement learning." },
+  q18: { answer: "mqtt", explanation: "MQTT is commonly used in constrained IoT devices." },
+  q19: { answer: "low power wide area network", explanation: "LPWAN stands for Low Power Wide Area Network." },
+  q20: { answer: "arduino", explanation: "Arduino is a popular open-source platform for IoT prototypes." }
+};
+
+function submitQuiz() {
+  let score = 0;
+  let attempted = 0;
+  let total = Object.keys(correctAnswers).length;
+  let feedback = '';
+
+  for (let q in correctAnswers) {
+    const correct = correctAnswers[q].answer;
+    const explanation = correctAnswers[q].explanation;
+    let selected = [];
+    let inputEl = document.querySelectorAll(`[name="${q}"]`);
+    if (!inputEl.length) continue;
+
+    if (inputEl[0].type === "checkbox") {
+      selected = Array.from(inputEl).filter(i => i.checked).map(i => i.value);
+    } else if (inputEl[0].type === "radio") {
+      const checked = Array.from(inputEl).find(i => i.checked);
+      if (checked) selected = [checked.value];
+    } else if (inputEl[0].type === "text") {
+      const value = inputEl[0].value.trim();
+      if (value !== "") selected = [value.toLowerCase()];
+    }
+
+    const userAttempted = selected.length > 0;
+    if (userAttempted) attempted++;
+
+    let isCorrect = false;
+    if (Array.isArray(correct)) {
+      isCorrect = selected.length === correct.length && selected.every(val => correct.includes(val));
+    } else {
+      isCorrect = selected[0] && selected[0].toLowerCase() === correct.toLowerCase();
+    }
+
+    if (isCorrect) {
+      score++;
+      feedback += `<div class="feedback correct">✅ Q${q.substring(1)}: Correct</div>`;
+    } else {
+      feedback += `<div class="feedback incorrect">❌ Q${q.substring(1)}: Incorrect<br>
+        ➤ Correct answer: ${Array.isArray(correct) ? correct.join(', ') : correct}<br>
+        📝 Explanation: ${explanation}</div>`;
+    }
+  }
+
+  document.getElementById("result").innerHTML = `
+    <div>✅ You attempted <strong>${attempted}</strong> out of <strong>${total}</strong> questions.</div>
+    <div>🏆 You got <strong>${score}</strong> correct.</div>
+    <hr>${feedback}
+  `;
+}
+</script>
+</body>
+</html>
