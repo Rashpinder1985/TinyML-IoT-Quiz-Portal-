@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TinyML Software Frameworks and Tools – Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question h3 {
+      margin-bottom: 5px;
+    }
+    .options label {
+      display: block;
+      margin-left: 15px;
+    }
+    input[type="text"] {
+      margin-left: 15px;
+      width: 200px;
+      padding: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: #f7f7f7;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .feedback {
+      margin-top: 10px;
+      padding-left: 20px;
+      font-size: 0.95em;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>TinyML Software Frameworks and Tools – Quiz</h1>
+
+  <section id="learning-content">
+    <h2>📘 Learning: TinyML Software Frameworks and Tools</h2>
+
+    <h3>🔧 1. TensorFlow Lite for Microcontrollers (TFLM)</h3>
+    <p>Designed for devices with less than 100 KB of RAM. No OS required. Ideal for MCUs.</p>
+
+    <h3>⚙️ 2. CMSIS-NN</h3>
+    <p>A library optimized for ARM Cortex-M cores. Provides fast, quantized neural network operations.</p>
+
+    <h3>📦 3. Edge Impulse</h3>
+    <p>End-to-end platform for collecting data, training, optimizing, and deploying models to MCUs or edge devices.</p>
+
+    <h3>💡 4. uTensor</h3>
+    <p>Lightweight ML framework developed by ARM. Suitable for low-memory devices, focused on static memory allocation.</p>
+
+    <h3>📋 5. TVM / Apache Tiny</h3>
+    <p>Compiles models into minimal binaries. Good for advanced optimization on edge devices.</p>
+
+    <h3>🛠️ Tools Summary:</h3>
+    <ul>
+      <li><strong>TFLM:</strong> Lightweight inference engine</li>
+      <li><strong>CMSIS-NN:</strong> Optimized ARM library</li>
+      <li><strong>Edge Impulse:</strong> GUI-based development & deployment</li>
+      <li><strong>uTensor:</strong> TinyML-focused static runtime</li>
+      <li><strong>TVM:</strong> Compiler for efficient codegen on edge</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <form id="quizForm">
+
+    <!-- MCQ Questions -->
+    <div class="question">
+      <h3>1. Which TinyML framework is designed to run without an OS on microcontrollers?</h3>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A. PyTorch Mobile</label>
+        <label><input type="radio" name="q1" value="B"> B. TensorFlow Lite for Microcontrollers</label>
+        <label><input type="radio" name="q1" value="C"> C. TensorBoard</label>
+        <label><input type="radio" name="q1" value="D"> D. TVM</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Which library is specifically optimized for ARM Cortex-M processors?</h3>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A. uTensor</label>
+        <label><input type="radio" name="q2" value="B"> B. CMSIS-NN</label>
+        <label><input type="radio" name="q2" value="C"> C. TFLite</label>
+        <label><input type="radio" name="q2" value="D"> D. ONNX</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. What is the primary role of Edge Impulse?</h3>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A. Cloud-based GPU training</label>
+        <label><input type="radio" name="q3" value="B"> B. Large-scale deep learning</label>
+        <label><input type="radio" name="q3" value="C"> C. End-to-end TinyML development and deployment</label>
+        <label><input type="radio" name="q3" value="D"> D. Web hosting</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. What type of memory management does uTensor emphasize?</h3>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A. Dynamic allocation</label>
+        <label><input type="radio" name="q4" value="B"> B. GPU-based allocation</label>
+        <label><input type="radio" name="q4" value="C"> C. Static allocation</label>
+        <label><input type="radio" name="q4" value="D"> D. Cloud caching</label>
+      </div>
+    </div>
+
+    <!-- MSQ Questions -->
+    <div class="question">
+      <h3>5. Which tools support model deployment to microcontrollers? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q5" value="A"> A. TensorFlow Lite Micro</label>
+        <label><input type="checkbox" name="q5" value="B"> B. CMSIS-NN</label>
+        <label><input type="checkbox" name="q5" value="C"> C. Edge Impulse</label>
+        <label><input type="checkbox" name="q5" value="D"> D. Google Colab</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. What features does Edge Impulse provide? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q6" value="A"> A. Model training</label>
+        <label><input type="checkbox" name="q6" value="B"> B. Data collection</label>
+        <label><input type="checkbox" name="q6" value="C"> C. Cloud-based GPU inference</label>
+        <label><input type="checkbox" name="q6" value="D"> D. Deployment to MCUs</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. Which frameworks are optimized for low-power, resource-constrained hardware? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q7" value="A"> A. uTensor</label>
+        <label><input type="checkbox" name="q7" value="B"> B. TensorFlow Lite Micro</label>
+        <label><input type="checkbox" name="q7" value="C"> C. ResNet</label>
+        <label><input type="checkbox" name="q7" value="D"> D. CMSIS-NN</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. Which of these are TinyML-specific tools? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q8" value="A"> A. TVM</label>
+        <label><input type="checkbox" name="q8" value="B"> B. uTensor</label>
+        <label><input type="checkbox" name="q8" value="C"> C. TensorFlow.js</label>
+        <label><input type="checkbox" name="q8" value="D"> D. Edge Impulse</label>
+      </div>
+    </div>
+
+    <!-- NAT Questions -->
+    <div class="question">
+      <h3>9. (NAT) What is the typical minimum RAM (in KB) required for running TFLite Micro models?</h3>
+      <input type="text" name="q9" placeholder="Enter number like 16">
+    </div>
+
+    <div class="question">
+      <h3>10. (NAT) How many frameworks from the list support quantized int8 inference?</h3>
+      <input type="text" name="q10" placeholder="Enter number like 3">
+    </div>
+
+  </form>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+
+  <div id="result"></div>
+
+  <script>
+    const correctAnswers = {
+      q1: { answer: "B", explanation: "TFLite Micro runs on bare-metal microcontrollers without an OS." },
+      q2: { answer: "B", explanation: "CMSIS-NN is highly optimized for ARM Cortex-M cores." },
+      q3: { answer: "C", explanation: "Edge Impulse provides end-to-end tools for data, training, and deployment." },
+      q4: { answer: "C", explanation: "uTensor uses static memory allocation to minimize memory usage." },
+      q5: { answer: ["A", "B", "C"], explanation: "TFLite Micro, CMSIS-NN, and Edge Impulse support MCU deployment." },
+      q6: { answer: ["A", "B", "D"], explanation: "Edge Impulse supports data, training, and MCU deployment." },
+      q7: { answer: ["A", "B", "D"], explanation: "uTensor, CMSIS-NN, and TFLite Micro are all optimized for TinyML." },
+      q8: { answer: ["A", "B", "D"], explanation: "TVM, uTensor, and Edge Impulse are TinyML-focused tools." },
+      q9: { answer: "16", explanation: "TFLite Micro can run with as little as 16KB RAM depending on model." },
+      q10: { answer: "3", explanation: "TFLite Micro, CMSIS-NN, and TVM support quantized int8 inference." }
+    };
+
+    function submitQuiz() {
+      let score = 0;
+      let attempted = 0;
+      let total = Object.keys(correctAnswers).length;
+      let feedback = '';
+
+      for (let q in correctAnswers) {
+        const correct = correctAnswers[q].answer;
+        const explanation = correctAnswers[q].explanation;
+
+        let selected = [];
+        let inputEl = document.querySelectorAll(`[name="${q}"]`);
+        if (inputEl[0].type === "checkbox") {
+          selected = Array.from(inputEl).filter(i => i.checked).map(i => i.value);
+        } else if (inputEl[0].type === "radio") {
+          const checked = Array.from(inputEl).find(i => i.checked);
+          if (checked) selected = [checked.value];
+        } else if (inputEl[0].type === "text") {
+          const value = inputEl[0].value.trim();
+          if (value !== "") selected = [value];
+        }
+
+        const userAttempted = selected.length > 0;
+        if (userAttempted) attempted++;
+
+        let isCorrect = false;
+        if (Array.isArray(correct)) {
+          isCorrect = selected.length === correct.length && selected.every(v => correct.includes(v));
+        } else {
+          isCorrect = selected[0] && selected[0].toString().toLowerCase() === correct.toString().toLowerCase();
+        }
+
+        if (isCorrect) {
+          score++;
+          feedback += `<div class="feedback correct">✅ Q${q.substring(1)}: Correct</div>`;
+        } else {
+          feedback += `<div class="feedback incorrect">❌ Q${q.substring(1)}: Incorrect<br>
+                      ➤ Correct answer: ${Array.isArray(correct) ? correct.join(', ') : correct}<br>
+                      📝 Explanation: ${explanation}</div>`;
+        }
+      }
+
+      document.getElementById("result").innerHTML = `
+        <div>✅ You attempted <strong>${attempted}</strong> out of <strong>${total}</strong> questions.</div>
+        <div>🏆 You got <strong>${score}</strong> correct.</div>
+        <hr>${feedback}
+      `;
+    }
+  </script>
+
+</body>
+</html>
