@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TinyML Classifier Case Study – Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .options label {
+      display: block;
+      margin-left: 15px;
+    }
+    input[type="text"] {
+      margin-left: 15px;
+      width: 200px;
+      padding: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: #f7f7f7;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .feedback {
+      margin-top: 10px;
+      padding-left: 20px;
+      font-size: 0.95em;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>TinyML Case Study: Temperature and Activity Classifier</h1>
+
+  <section id="learning">
+    <h2>📘 Learning: Building Lightweight Classifiers with TensorFlow Lite</h2>
+    <p>This case study covers how to build, train, convert, and run inference on lightweight neural networks suitable for TinyML deployment.</p>
+
+    <h3>1. 🔧 Model Design</h3>
+    <ul>
+      <li>Temperature model: binary classification</li>
+      <li>Activity model: 3-class classification (resting, walking, running)</li>
+      <li>Input shape: <code>(3, 1)</code> using dummy data</li>
+    </ul>
+
+    <h3>2. 🧠 Training</h3>
+    <ul>
+      <li>100 samples of dummy data used</li>
+      <li>Trained for 1 epoch</li>
+    </ul>
+
+    <h3>3. 🔄 Conversion</h3>
+    <p>Model is converted to TFLite using <code>TFLiteConverter</code>. Example:</p>
+    <pre><code>converter = tf.lite.TFLiteConverter.from_keras_model(model)
+tflite_model = converter.convert()</code></pre>
+<h3>💡 Input Reshaping Explained</h3>
+    <p>The input provided to the TFLite model must match the expected shape, which is <code>(1, 3, 1)</code>. This represents:</p>
+    <ul>
+      <li><strong>1</strong>: Batch size (one sample at a time)</li>
+      <li><strong>3</strong>: Time steps (three readings)</li>
+      <li><strong>1</strong>: Features per time step</li>
+    </ul>
+    <p>For example:</p>
+    <pre><code>np.array([[0.5, 1.2, 0.8]], dtype=np.float32).reshape(1, 3, 1)</code></pre>
+    <p>This creates the input in a format like:</p>
+    <pre><code>array([[[0.5],
+        [1.2],
+        [0.8]]], dtype=float32)</code></pre>
+    <p>This format is necessary because the model expects a 3D input: batch size × time steps × features.</p>
+    <h3>4. 🧪 Inference</h3>
+    <ul>
+      <li>Interpreter loads .tflite model</li>
+      <li>Input reshaped to (1, 3, 1)</li>
+      <li>Prediction via <code>np.argmax(output)</code></li>
+    </ul>
+
+    <p>Now answer the quiz below based on this case study.</p>
+  </section>
+
+  <form id="quizForm">
+    <div class="question">
+      <h3>1. What is the input shape used for the classifier models?</h3>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A. (3, 3)</label>
+        <label><input type="radio" name="q1" value="B"> B. (1, 3)</label>
+        <label><input type="radio" name="q1" value="C"> C. (3, 1)</label>
+        <label><input type="radio" name="q1" value="D"> D. (1, 1)</label>
+      </div>
+    </div>
+    <div class="question">
+      <h3>2. How many classes does the activity classifier model predict?</h3>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A. 2</label>
+        <label><input type="radio" name="q2" value="B"> B. 3</label>
+        <label><input type="radio" name="q2" value="C"> C. 4</label>
+        <label><input type="radio" name="q2" value="D"> D. 1</label>
+      </div>
+    </div>
+    <div class="question">
+      <h3>3. What method is used to convert a Keras model to a TFLite model?</h3>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A. tf.keras.convert()</label>
+        <label><input type="radio" name="q3" value="B"> B. tflite.convert_model()</label>
+        <label><input type="radio" name="q3" value="C"> C. TFLiteConverter.from_keras_model()</label>
+        <label><input type="radio" name="q3" value="D"> D. TFLite.save_model()</label>
+      </div>
+    </div>
+    <div class="question">
+      <h3>4. What is the purpose of reshaping the input before inference?</h3>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A. To increase accuracy</label>
+        <label><input type="radio" name="q4" value="B"> B. To match model's expected input shape</label>
+        <label><input type="radio" name="q4" value="C"> C. To convert to float</label>
+        <label><input type="radio" name="q4" value="D"> D. To train the model</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Which of the following are steps in deploying a model using TFLite? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q5" value="A"> A. Train the model using Keras</label>
+        <label><input type="checkbox" name="q5" value="B"> B. Convert model using TFLiteConverter</label>
+        <label><input type="checkbox" name="q5" value="C"> C. Save model as a .tflite file</label>
+        <label><input type="checkbox" name="q5" value="D"> D. Upload directly to Edge Impulse</label>
+      </div>
+    </div>
+    <div class="question">
+      <h3>6. What inputs are required to run TFLite model inference? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q6" value="A"> A. Model interpreter</label>
+        <label><input type="checkbox" name="q6" value="B"> B. Reshaped input tensor</label>
+        <label><input type="checkbox" name="q6" value="C"> C. Graphical interface</label>
+        <label><input type="checkbox" name="q6" value="D"> D. Input and output tensor index</label>
+      </div>
+    </div>
+    <div class="question">
+      <h3>7. What does <code>np.argmax()</code> return in this workflow? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q7" value="A"> A. Maximum value in the array</label>
+        <label><input type="checkbox" name="q7" value="B"> B. Index of the highest predicted probability</label>
+        <label><input type="checkbox" name="q7" value="C"> C. Predicted class index</label>
+        <label><input type="checkbox" name="q7" value="D"> D. Input tensor shape</label>
+      </div>
+    </div>
+    <div class="question">
+      <h3>8. Which of the following are valid reshaped inputs used in the examples? (Select all that apply)</h3>
+      <div class="options">
+        <label><input type="checkbox" name="q8" value="A"> A. np.array([[22.0, 23.5, 21.0]], dtype=np.float32).reshape(1, 3, 1)</label>
+        <label><input type="checkbox" name="q8" value="B"> B. np.array([[0.5, 1.2, 0.8]], dtype=np.float32).reshape(1, 3, 1)</label>
+        <label><input type="checkbox" name="q8" value="C"> C. np.array([[0.5, 1.2, 0.8]])</label>
+        <label><input type="checkbox" name="q8" value="D"> D. reshape(3, 1, 1)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. (NAT) How many output classes does the temperature classifier have?</h3>
+      <input type="text" name="q9" placeholder="e.g., 2">
+    </div>
+    <div class="question">
+      <h3>10. (NAT) What Python function is used to write the .tflite file to disk?</h3>
+      <input type="text" name="q10" placeholder="e.g., open">
+    </div>
+    <!-- Questions will be inserted here -->
+  </form>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+  <div id="result"></div>
+
+<script>
+  const correctAnswers = {
+    q1: { answer: "C", explanation: "The input shape for both models is (3, 1) representing 3 time steps with 1 feature each." },
+    q2: { answer: "B", explanation: "The activity model is a 3-class classifier: resting, walking, running." },
+    q3: { answer: "C", explanation: "The correct method is TFLiteConverter.from_keras_model()." },
+    q4: { answer: "B", explanation: "Input reshaping ensures the input matches the expected input shape of the model." },
+    q5: { answer: ["A", "B", "C"], explanation: "Training, converting, and saving the model are all valid steps in the TFLite workflow." },
+    q6: { answer: ["A", "B", "D"], explanation: "The interpreter, reshaped input, and tensors are necessary for inference." },
+    q7: { answer: ["B", "C"], explanation: "np.argmax gives the index of the class with the highest probability, used for classification." },
+    q8: { answer: ["A", "B"], explanation: "Those examples reshape the array to (1, 3, 1) as required by the model." },
+    q9: { answer: "2", explanation: "The temperature classifier is a binary classifier, hence 2 classes." },
+    q10: { answer: "open", explanation: "Python’s open() is used to write the TFLite model to disk." }
+  };
+
+  function submitQuiz() {
+    let score = 0;
+    let attempted = 0;
+    let total = Object.keys(correctAnswers).length;
+    let feedback = '';
+
+    for (let q in correctAnswers) {
+      const correct = correctAnswers[q].answer;
+      const explanation = correctAnswers[q].explanation;
+      let selected = [];
+      let inputEl = document.querySelectorAll(`[name="${q}"]`);
+      if (!inputEl.length) continue;
+
+      if (inputEl[0].type === "checkbox") {
+        selected = Array.from(inputEl).filter(i => i.checked).map(i => i.value);
+      } else if (inputEl[0].type === "radio") {
+        const checked = Array.from(inputEl).find(i => i.checked);
+        if (checked) selected = [checked.value];
+      } else if (inputEl[0].type === "text") {
+        const value = inputEl[0].value.trim();
+        if (value !== "") selected = [value.toLowerCase()];
+      }
+
+      const userAttempted = selected.length > 0;
+      if (userAttempted) attempted++;
+
+      let isCorrect = false;
+      if (Array.isArray(correct)) {
+        isCorrect = selected.length === correct.length && selected.every(val => correct.includes(val));
+      } else {
+        isCorrect = selected[0] && selected[0].toLowerCase() === correct.toLowerCase();
+      }
+
+      if (isCorrect) {
+        score++;
+        feedback += `<div class="feedback correct">✅ Q${q.substring(1)}: Correct</div>`;
+      } else {
+        feedback += `<div class="feedback incorrect">❌ Q${q.substring(1)}: Incorrect<br>
+          ➤ Correct answer: ${Array.isArray(correct) ? correct.join(', ') : correct}<br>
+          📝 Explanation: ${explanation}</div>`;
+      }
+    }
+
+    document.getElementById("result").innerHTML = `
+      <div>✅ You attempted <strong>${attempted}</strong> out of <strong>${total}</strong> questions.</div>
+      <div>🏆 You got <strong>${score}</strong> correct.</div>
+      <hr>${feedback}
+    `;
+  }
+</script>
+
+</body>
+</html>
